@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{<title>{% block title %}Arquetitek | Blog{% endblock title %}</title>
+
+{% block main %}
+
+    {#    <img src={{ post.imagen.url}}/>#}
+    {#    <p>{{post.descripcion}}</p>#}
+    {#     <b>{{post.publicado}} por {{post.autor}}</b>#}
+    {% comment %} {% for foto in galeria %}
+        {#  este comentado  {% for foto in post.foto_set.all %}#}
+        <img src={{ foto.foto.url }}/>
+    {% endfor %}{% endcomment %}
+    <section id="page-title">
+
+        <div class="container clearfix">
+            {% comment %}<h1>{{ post.titulo }}</h1>
+            <div id="portfolio-navigation">
+                <a href="#"><i class="icon-angle-left"></i></a>
+                <a href="#"><i class="icon-line-grid"></i></a>
+                <a href="#"><i class="icon-angle-right"></i></a>
+            </div>{% endcomment %}
+        </div>
+
+    </section><!-- #page-title end -->
+
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <div class="single-post nobottommargin">
+
+                    <!-- Entry Image
+
+                   ============================================= -->
+                    {% if post.foto_set.count %}
+                        <div class=" col_full portfolio-single-image">
+                            <div class="fslider" data-arrows="true" data-animation="slide">
+                                <div class="flexslider">
+                                    <div class="slider-wrap">
+                                        {% if post.imagen %}
+                                            <div class="slide"><a><img
+                                                    src="{{ post.imagen.url }}" alt=""></a>
+                                            </div>
+                                        {% endif %}
+                                        {% for foto in post.foto_set.all %}
+                                            <div class="slide"><a><img
+                                                    src="{{ foto.foto.url }}" alt=""></a>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% elif post.video %}
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ post.video }}"
+                                frameborder="0"
+                                allowfullscreen></iframe>
+                    {% elif post.imagen %}
+                        <div class="entry-image bottommargin">
+                            <a><img src="{{ post.imagen.url }}" alt="{{ post.titulo }}"></a>
+                        </div><!-- .entry-image end -->
+
+                        </div>
+                    {% endif %}
+
+
+                <!-- Post Content
+                ============================================= -->
+                <div class="postcontent nobottommargin clearfix">
+
+
+                    <!-- Single Post
+                    ============================================= -->
+                    <div class="entry clearfix">
+
+                        <!-- Entry Title
+                        ============================================= -->
+                        <div class="entry-title">
+                            <h2>{{ post.titulo }}</h2><br>
+                        </div><!-- .entry-title end -->
+
+                        <!-- Entry Meta
+                        ============================================= -->
+                        <ul class="entry-meta clearfix">
+                            <li> {{ post.publicado }} </li>
+                            <li> {{ post.autor }} </li>
+                            <li> {{ post.descripcion }} </li>
+                        </ul><!-- .entry-meta end -->
+
+                        <!-- Entry Content
+                        ============================================= -->
+                        <div class="entry-content notopmargin">
+
+                            <p>{{ post.contenido|safe }}</p>
+
+                            <!-- Post Single - Content End -->
+
+                            <!-- Post Single - Share
+                            ============================================= -->
+                            <div class="si-share noborder clearfix">
+                                <span>Compártelo:</span>
+                                <div>
+                                    <a href="#" class="social-icon si-borderless si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-borderless si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-borderless si-pinterest">
+                                        <i class="icon-pinterest"></i>
+                                        <i class="icon-pinterest"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-borderless si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-borderless si-rss">
+                                        <i class="icon-rss"></i>
+                                        <i class="icon-rss"></i>
+                                    </a>
+                                    <a href="#" class="social-icon si-borderless si-email3">
+                                        <i class="icon-email3"></i>
+                                        <i class="icon-email3"></i>
+                                    </a>
+                                </div>
+                            </div><!-- Post Single - Share End -->
+
+                        </div>
+                    </div><!-- .entry end -->
+
+
+                </div>
+
+                <!-- Sidebar
+                ============================================= -->
+                <div class="sidebar nobottommargin col_last clearfix">
+                    <div class="sidebar-widgets-wrap">
+
+                        <div class="widget widget-twitter-feed clearfix">
+
+                            <h4>Twitter Feed</h4>
+                            <ul class="iconlist twitter-feed" data-username="envato" data-count="2">
+                                <li></li>
+                            </ul>
+
+                            <a href="#" class="btn btn-default btn-sm fright">Follow Us on Twitter</a>
+
+                        </div>
+
+
+                        <div class="widget clearfix">
+
+                            <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
+                                <div class="tab-container">
+
+                                    <div class="tab-content clearfix" id="tabs-1">
+                                        <div id="popular-post-list-sidebar">
+                                            {% for foto in post.foto_set.all %}
+                                                <div class="spost clearfix">
+                                                    <div class="entry-image">
+                                                        <a href="#" class="nobg"><img class="img-circle"
+                                                                                      src="{{ post.imagen.url }}"
+                                                                                      alt=""></a>
+                                                    </div>
+                                                    <div class="entry-c">
+                                                        <div class="entry-title">
+                                                            <h4><a href="#">{{ post.titulo }}</a>
+                                                            </h4>
+                                                        </div>
+                                                        <ul class="entry-meta">
+                                                            <li><i class="icon-comments-alt"></i> </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div><!-- .sidebar end -->
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+    </section><!-- #content end -->
+
+{% endblock main %}

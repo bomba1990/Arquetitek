@@ -1,0 +1,467 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+
+    <section id="slider" class="slider-parallax revslider-wrap clearfix">
+        <div class="slider-parallax-inner">
+            <!--
+            #################################
+                - THEMEPUNCH BANNER -
+            #################################
+            -->
+            <div class="tp-banner-container fullscreen-container">
+                <div class="tp-banner">
+                    <ul>    <!-- SLIDE  -->
+                        <li class="dark" data-transition="fade" data-slotamount="1" data-masterspeed="500">
+                            <!-- MAIN IMAGE -->
+                            <img src="{% static 'images/videos/explore.jpg' %}" alt=""
+                                 data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                                 data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                            <!-- LAYERS -->
+
+                            <!-- LAYER NR. 1 -->
+                            <div class="tp-fade fadeout fullscreenvideo rs-background-video-layer"
+                                 data-forcerewind="on"
+                                 data-volume="mute"
+                                 data-videowidth="100%"
+                                 data-videoheight="100%"
+                                 data-videomp4="{% static 'images/videos/notebook2.mp4' %}"
+                                 data-videopreload="preload"
+                                 data-videoloop="loop"
+                                 data-forceCover="0"
+                                 data-aspectratio="16:9"
+                                 data-autoplay="true"
+                                 data-autoplayonlyfirsttime="false"
+                                 data-nextslideatend="false"
+                            >
+                            </div>
+
+                            <!-- LAYER NR. 2 -->
+                            <div class="tp-caption customin ltl tp-resizeme revo-slider-caps-text uppercase"
+                                 data-x="375"
+                                 data-y="90"
+                                 data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
+                                 data-speed="800"
+                                 data-start="1000"
+                                 data-easing="easeOutQuad"
+                                 data-splitin="none"
+                                 data-splitout="none"
+                                 data-elementdelay="0.01"
+                                 data-endelementdelay="0.1"
+                                 data-endspeed="5000"
+                                 data-endeasing="Power4.easeIn" style="z-index: 3; white-space: nowrap;">Comencemos
+                                a expandir tu marca
+                            </div>
+
+                            <div class="tp-caption customin ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
+                                 data-x="90"
+                                 data-y="120"
+                                 data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
+                                 data-speed="800"
+                                 data-start="1200"
+                                 data-easing="easeOutQuad"
+                                 data-splitin="none"
+                                 data-splitout="none"
+                                 data-elementdelay="0.01"
+                                 data-endelementdelay="0.1"
+                                 data-endspeed="5000"
+                                 data-endeasing="Power4.easeIn" style="z-index: 3; white-space: nowrap;">Bienvenidos
+                                al mundo Arquetitek
+                            </div>
+
+                            <div class="tp-caption customin ltl tp-resizeme revo-slider-desc-text"
+                                 data-x="195"
+                                 data-y="230"
+                                 data-customin="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
+                                 data-speed="800"
+                                 data-start="1400"
+                                 data-easing="easeOutQuad"
+                                 data-splitin="none"
+                                 data-splitout="none"
+                                 data-elementdelay="0.01"
+                                 data-endelementdelay="0.1"
+                                 data-endspeed="5000"
+                                 data-endeasing="Power4.easeIn"
+                                 style="z-index: 3; width: 750px; max-width: 750px; white-space: normal;">Ponemos a
+                                tu disposición un abanico de soluciones para hacer crecer tu marca<br>y alcanzar las
+                                metas establecidas
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content
+    ============================================= -->
+    <section id="content">
+
+        <div class="content-wrap">
+
+            <div class="container clearfix">
+
+                <div class="heading-block center" style="width:100%;">
+                    <img class="bottommargin" src="{% static 'images/logo-side.png' %}" alt="">
+                    <h1><strong>Esto es Arquetitek</strong></h1>
+                    <span style="font-size:18px; line-height:150%;">
+                        Un equipo multidisciplinario de jóvenes enfocados en desarrollar soluciones efectivas y de gran impacto a nivel publicitario,
+                        apoyándonos en herramientas tecnológicas 100% funcionales y efectivas, ademas de diseños modernos, elegantes y atractivos.
+                        </span>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-bullhorn2"></i></a>
+                        </div>
+                        <h3>Marketing Digital</h3>
+                        <p>Estrategias de comercialización llevadas a cabo en los medios digitales</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-share"></i></a>
+                        </div>
+                        <h3>Social Media</h3>
+                        <p>Uso estratégico de las redes sociales para promover la marca de tu empresa o
+                            emprendimiento</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third col_last">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-search3"></i></a>
+                        </div>
+                        <h3>SEO Optimizado</h3>
+                        <p>Conjunto de técnicas utilizadas para posicionar una marca de forma natural en los
+                            buscadores</p>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-pencil2"></i></a>
+                        </div>
+                        <h3>Diseño Gráfico</h3>
+                        <p>Aplicamos mucho ingenio y creatividad en nuestros diseños para garantizar la satisfacción
+                            de nuestros cliente</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-screen"></i></a>
+                        </div>
+                        <h3>Diseño Web</h3>
+                        <p>Diseños de páginas web modernas y profesionales adaptadas a las exigencias del mercado
+                            actual</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third col_last">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-keyboard"></i></a>
+                        </div>
+                        <h3>Desarrollo Web</h3>
+                        <p>Desarrollamos herramientas útiles y funcionales que facilitan los procesos de nuestros
+                            clientes</p>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-sitemap"></i></a>
+                        </div>
+                        <h3>Desrrollo de software</h3>
+                        <p>Desarrollamos sistemas complejos adaptados a las necesidades de nuestros clientes</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-phone2"></i></a>
+                        </div>
+                        <h3>Aplicaciones Móviles</h3>
+                        <p>Aplicaciones móviles para todos los gustos que brindan a los usuarios una experiencia más
+                            completa y agradable</p>
+                    </div>
+                </div>
+
+                <div class="col_one_third col_last">
+                    <div class="feature-box fbox-center fbox-border fbox-effect noborder">
+                        <div class="fbox-icon">
+                            <a href="{% url 'servicios' %}"><i class="icon-bar-chart"></i></a>
+                        </div>
+                        <h3>Manejo de marca</h3>
+                        <p>Aplicamos estratégias de marketing para explotar al maximo el potencial de tu empresa</p>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="section parallax dark nobottommargin nobottomborder"
+                 style="background: url({% static 'images/parallax/7.jpg' %});" data-stellar-background-ratio="0.3">
+
+                <div class="container clearfix">
+
+                    <div class="heading-block center">
+                        <h2>Creamos páginas increibles que se adaptan a cualquier dispositivo web o móvil</h2>
+                    </div>
+
+                    <div style="position: relative; margin-bottom: -60px;" data-height-lg="415" data-height-md="342"
+                         data-height-sm="262" data-height-xs="160" data-height-xxs="102">
+                        <img src="{% static 'images/services/chrome.png' %}"
+                             style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" alt="Chrome">
+                        <img src="{% static 'images/services/ipad3.png' %}"
+                             style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp" data-delay="300"
+                             alt="iPad">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Portfolio Script
+            ============================================= -->
+
+            <div class="clear" style="height:60px;"></div>
+
+            <div class="container clearfix">
+
+                <div class="col_three_fifth topmargin-sm bottommargin">
+                    <img data-animate="fadeInLeftBig" src="{% static 'images/services/imac.png' %}" alt="Imac">
+                </div>
+
+                <div class="col_two_fifth topmargin-sm bottommargin-lg col_last">
+
+                    <div class="heading-block" style="margin-top:-20px;">
+                        <h2>Expertos en Social Media y Marketing Digital </h2>
+                    </div>
+
+                    <p>Las redes sociales se han convertido en la manera más rápida para promover una marca
+                        comercial y en Arquetitek contamos con un equipo multiciplinario que trabaja en conjunto
+                        para ofrecer un servicio de alto nivel</p>
+
+                    <a href="{% url 'servicios' %}" class="button button-border button-rounded button-large noleftmargin topmargin-sm">Ver
+                        más</a>
+
+                </div>
+
+            </div>
+
+            <div class="section dark parallax notopmargin nobottommargin noborder"
+                 style="height: 500px; padding: 145px 0;">
+
+                <div class="container clearfix">
+
+                    <div class="slider-caption slider-caption-center" style="position: relative; padding-top:50px;">
+                        <div data-animate="fadeInUp">
+                            <h2 style="font-size: 42px;">Arquetitek</h2>
+                            <h2 style="font-size: 26px !important;">Tecnología - Diseño - Marketing Digital</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="video-wrap">
+                    <video poster="{% static 'images/videos/explore.jpg' %}" preload="none" loop autoplay muted>
+                        <source src='{% static 'images/videos/vitrina.mp4' %}' type='video/mp4'/>
+                    </video>
+                    <div class="video-overlay" style="background-color: rgba(0,0,0,0.3);"></div>
+                </div>
+
+            </div>
+
+            <div class="col_full common-height">
+
+                <div class="col-md-4 dark col-padding ohidden" style="background-color: #00a0e3;">
+                    <div>
+                        <h3 class="uppercase" style="font-weight: 600;">Por qué elegirnos</h3>
+                        <p style="line-height: 1.8;">Nuestra experiencia en diferentes áreas tecnológicas nos hacen
+                            la mejor opción en cuanto a marketing, diseño y desarrollo informático, un equipo de
+                            profesionales especialistas le ofrecen las mejores soluciones para sus necesidades
+                            comerciales, lo que se traduce en un retorno exponencial de la inversión realizada</p>
+                        {% comment %}<a href="#" class="button button-border button-light button-rounded uppercase nomargin">Leer
+                            Más</a>{% endcomment %}
+                        <i class="icon-bulb bgicon"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-4 dark col-padding ohidden" style="background-color: #0066b4;">
+                    <div>
+                        <h3 class="uppercase" style="font-weight: 600;">Nuestra Misión</h3>
+                        <p style="line-height: 1.8;">Ayudar a nuestros clientes a explotar el máximo potencial de su
+                            marca para que sus emprendimientos, metas y sueños sean logrados.</p>
+                       {% comment %} <a href="#" class="button button-border button-light button-rounded uppercase nomargin">Leer
+                            Más</a>{% endcomment %}
+                        <i class="icon-cog bgicon"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-4 dark col-padding ohidden" style="background-color: #335163;">
+                    <div>
+                        <h3 class="uppercase" style="font-weight: 600;">Nuestra Visión</h3>
+                        <p style="line-height: 1.8;">Convertirnos en la empresa con mayor alcance internacional en
+                            promoción de marcas y de esta forma ser la plataforma en la que todas las empresas se
+                            apoyen para alcanzar el éxito</p>
+                        {% comment %}<a href="#" class="button button-border button-light button-rounded uppercase nomargin">Leer
+                            Más</a>{% endcomment %}
+                        <i class="icon-thumbs-up bgicon"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section><!-- #content end -->
+{% endblock %}
+{% block extra_scripts %}
+    <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+	<script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script type="text/javascript" src="{%  static 'rs-plugin/js/extensions/revolution.extension.video.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.actions.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.migration.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+    <script type="text/javascript">
+
+		var tpj=jQuery;
+		tpj.noConflict();
+
+		tpj(document).ready(function() {
+
+			var apiRevoSlider = tpj('.tp-banner').show().revolution(
+			{
+				sliderType:"standard",
+				jsFileLocation:"include/rs-plugin/js/",
+				sliderLayout:"fullscreen",
+				dottedOverlay:"none",
+				delay:9000,
+				responsiveLevels:[1200,992,768,480,320],
+				startwidth:1140,
+				startheight:600,
+				hideThumbs:200,
+
+				thumbWidth:100,
+				thumbHeight:50,
+				thumbAmount:3,
+
+				navigation: {
+					keyboardNavigation:"off",
+					keyboard_direction: "horizontal",
+					mouseScrollNavigation:"off",
+					onHoverStop:"off",
+					touch:{
+						touchenabled:"on",
+						swipe_threshold: 75,
+						swipe_min_touches: 1,
+						swipe_direction: "horizontal",
+						drag_block_vertical: false
+					},
+					arrows: {
+                        style: "hermes",
+                        enable: false,
+                        hide_onmobile: false,
+                        hide_onleave: false,
+                        tmp: '<div class="tp-arr-allwrapper">	<div class="tp-arr-imgholder"></div>	<div class="tp-arr-titleholder">{{title}}</div>	</div>',
+                        left: {
+                            h_align: "left",
+                            v_align: "center",
+                            h_offset: 10,
+                            v_offset: 0
+                        },
+                        right: {
+                            h_align: "right",
+                            v_align: "center",
+                            h_offset: 10,
+                            v_offset: 0
+                        }
+                    }
+				},
+
+				touchenabled:"on",
+				onHoverStop:"on",
+
+				swipe_velocity: 0.7,
+				swipe_min_touches: 1,
+				swipe_max_touches: 1,
+				drag_block_vertical: false,
+
+
+				parallax:"mouse",
+				parallaxBgFreeze:"on",
+				parallaxLevels:[8,7,6,5,4,3,2,1],
+				parallaxDisableOnMobile:"on",
+
+				keyboardNavigation:"on",
+
+				shadow:0,
+				fullWidth:"off",
+				fullScreen:"on",
+
+				spinner:"spinner0",
+
+				stopLoop:"off",
+				stopAfterLoops:-1,
+				stopAtSlide:-1,
+
+				shuffle:"off",
+
+
+				forceFullWidth:"off",
+				fullScreenAlignForce:"off",
+				minFullScreenHeight:"400",
+
+				hideThumbsOnMobile:"off",
+				hideNavDelayOnMobile:1500,
+				hideBulletsOnMobile:"off",
+				hideArrowsOnMobile:"off",
+				hideThumbsUnderResolution:0,
+
+				hideSliderAtLimit:0,
+				hideCaptionAtLimit:0,
+				hideAllCaptionAtLilmit:0,
+				startWithSlide:0,
+				fullScreenOffset:"0px"
+			});
+
+			apiRevoSlider.bind("revolution.slide.onloaded",function (e) {
+				setTimeout( function(){ SEMICOLON.slider.sliderParallaxDimensions(); }, 200 );
+			});
+
+			apiRevoSlider.bind("revolution.slide.onchange",function (e,data) {
+				SEMICOLON.slider.revolutionSliderMenu();
+			});
+
+		}); //END REVOLUTION SLIDER
+
+	</script>
+{% endblock %}

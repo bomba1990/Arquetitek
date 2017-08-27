@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>{% block title %}Arquetitek | Portafolio-Detalle{% endblock title %}</title>
+
+{% block main %}
+<!-- Page Title
+        ============================================= -->
+<section id="page-title">
+
+    <div class="container clearfix">
+        {% comment %}<h1>Portfolio Single - Gallery</h1>
+            <div id="portfolio-navigation">
+                <a href="#"><i class="icon-angle-left"></i></a>
+                <a href="#"><i class="icon-line-grid"></i></a>
+                <a href="#"><i class="icon-angle-right"></i></a>
+            </div>{% endcomment %}
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+
+            <div class="single-post nobottommargin">
+
+                <!-- Portfolio Single Gallery
+                ============================================= -->
+
+                {% if portafolio.photos_set.count %}
+                    <div class=" col_full portfolio-single-image">
+                        <div class="fslider" data-arrows="true" data-animation="slide">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    {% if portafolio.imagen %}
+                                        <div class="slide"><a><img
+                                                src="{{ portafolio.imagen.url }}" alt=""></a>
+                                        </div>
+                                    {% endif %}
+                                    {% for photos in portafolio.photos_set.all %}
+                                        <div class="slide"><a><img
+                                                src="{{ photos.foto.url }}" alt=""></a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% elif portafolio.imagen %}
+                    <div class="entry-image bottommargin">
+                        <a><img src="{{ portafolio.imagen.url }}" alt="{{ portafolio.titulo }}"></a>
+                    </div><!-- .entry-image end -->
+                {% elif portafolio.video %}
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ portafolio.video }}"
+                            frameborder="0"
+                            allowfullscreen></iframe>
+
+                {% endif %}
+
+
+
+
+                <!-- .portfolio-single-image end -->
+
+                <div class="col_one_third nobottommargin">
+
+                    <!-- Portfolio Single - Meta
+                    ============================================= -->
+                    <div class="panel panel-default events-meta">
+                        <div class="panel-body">
+                            <ul class="portfolio-meta nobottommargin">
+                                <li><span><i class="icon-user"></i>Created by:</span> {{ portafolio.create }}</li>
+                                <li><span><i
+                                        class="icon-calendar3"></i>Completed on:</span> {{ portafolio.completed }}
+                                </li>
+                                <li><span><i class="icon-lightbulb"></i>Skills:</span> {{ portafolio.skills }}</li>
+                                <li><span><i class="icon-link"></i>Client:</span> <a
+                                        href="#">{{ portafolio.client }}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Portfolio Single - Meta End -->
+
+                    <!-- Portfolio Single - Share
+                    ============================================= -->
+                    <div class="si-share noborder clearfix">
+                        <span>Share:</span>
+                        <div>
+                            <a href="#" class="social-icon si-borderless si-facebook">
+                                <i class="icon-facebook"></i>
+                                <i class="icon-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-twitter">
+                                <i class="icon-twitter"></i>
+                                <i class="icon-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-pinterest">
+                                <i class="icon-pinterest"></i>
+                                <i class="icon-pinterest"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-gplus">
+                                <i class="icon-gplus"></i>
+                                <i class="icon-gplus"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-rss">
+                                <i class="icon-rss"></i>
+                                <i class="icon-rss"></i>
+                            </a>
+                            <a href="#" class="social-icon si-borderless si-email3">
+                                <i class="icon-email3"></i>
+                                <i class="icon-email3"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Portfolio Single - Share End -->
+
+                </div>
+
+                <!-- Portfolio Single Content
+                ============================================= -->
+                <div class="col_two_third portfolio-single-content col_last nobottommargin">
+
+                    <!-- Portfolio Single - Description
+                    ============================================= -->
+                    <div class="fancy-title title-dotted-border">
+                        <h2>Project Info:</h2>
+                    </div>
+                    {{ portafolio.contenido|safe }}
+                </div>
+                <!-- Portfolio Single - Description End -->
+
+            </div><!-- .portfolio-single-content end -->
+
+            <div class="clear"></div>
+
+            <div class="divider divider-center"><i class="icon-circle"></i></div>
+
+            <!-- Related Portfolio Items
+            ============================================= -->
+
+            <h4>Related Projects:</h4>
+
+            <div id="related-portfolio" class="owl-carousel portfolio-carousel carousel-widget" data-margin="30"
+                 data-nav="false" data-autoplay="5000" data-items-xxs="1" data-items-xs="2" data-items-sm="3"
+                 data-items-lg="4">
+                <div class="oc-item">
+                    <div class="iportfolio">
+
+                        <div class="portfolio-image">
+                            <a href="{% url 'portafolio' %}">
+                                <img src="{{ portafolio.imagen.url }}" alt="Open Imagination">
+                            </a>
+                            <div class="portfolio-overlay">
+                                <a href="{{ portafolio.imagen.url }}" class="left-icon"
+                                   data-lightbox="image"><i
+                                        class="icon-line-plus"></i></a>
+                                <a href="{% url 'portafolio-detalle' portafolio.slug %}" class="right-icon"><i
+                                        class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div><!-- .portfolio-carousel end -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section><!-- #content end -->
+
+
+{% endblock %}
