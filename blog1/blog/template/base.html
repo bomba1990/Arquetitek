@@ -1,140 +1,166 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    {% load static %}
+
     <meta charset="utf-8">
-      <!-- Stylesheets
-	    ============================================= -->
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" />
-	    <link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}"/>
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/dark.css' %}"/>
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/font-icons.css' %}"/>
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}"/>
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}"/>
+    <!-- Stylesheets
+      ============================================= -->
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dark.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-icons.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}"/>
 
-	    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css'%}"/>
-	    <meta name="viewport" content="width=device-width, initial-scale=1" />
-	    <!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css'%}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
 
-	    <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
-	    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'rs-plugin/css/settings.css' %}"  />
-	    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/layers.css' %}">
-	    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/navigation.css' %}">
+    <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'rs-plugin/css/settings.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/layers.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/navigation.css' %}">
 
-       <!-- Document Title
-        ============================================= -->
-      <style> {% block style %}
+    <!-- Document Title
+     ============================================= -->
+    <style> {
+    %
+    block
+    style
+    %
+    }
 
-           .revo-slider-emphasis-text {
-			font-size: 64px;
-			font-weight: 700;
-			letter-spacing: -1px;
-			font-family: 'Raleway', sans-serif;
-			padding: 15px 20px;
-			border-top: 2px solid #FFF;
-			border-bottom: 2px solid #FFF;
-		}
+    .revo-slider-emphasis-text {
+        font-size: 64px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        font-family: 'Raleway', sans-serif;
+        padding: 15px 20px;
+        border-top: 2px solid #FFF;
+        border-bottom: 2px solid #FFF;
+    }
 
-		.revo-slider-desc-text {
-			font-size: 20px;
-			font-family: 'Lato', sans-serif;
-			width: 650px;
-			text-align: center;
-			line-height: 1.5;
-		}
+    .revo-slider-desc-text {
+        font-size: 20px;
+        font-family: 'Lato', sans-serif;
+        width: 650px;
+        text-align: center;
+        line-height: 1.5;
+    }
 
-		.revo-slider-caps-text {
-			font-size: 16px;
-			font-weight: 400;
-			letter-spacing: 3px;
-			font-family: 'Raleway', sans-serif;
-		}
+    .revo-slider-caps-text {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        font-family: 'Raleway', sans-serif;
+    }
 
-		.tp-video-play-button { display: none !important; }
+    .tp-video-play-button {
+        display: none !important;
+    }
 
-		.tp-caption { white-space: nowrap; }
+    .tp-caption {
+        white-space: nowrap;
+    }
 
-      {% endblock %}</style>
+    {
+    %
+    endblock
+    %
+    }</style>
 
     <title>{% block title %}Arquetitek{% endblock title %}</title>
-  </head>
-  <body class="stretched">
-  <div id="wrapper" class="clearfix">
+</head>
+<body class="stretched">
+<div id="wrapper" class="clearfix">
 
-        <!-- Header
-        ============================================= -->
-        <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
+    <!-- Header
+    ============================================= -->
+    <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
 
-            <div style="width:100%; height:44px; z-index:1000; padding:10px 15px; border-bottom:1px solid rgba(255,255,255,0.2);;">
+        <div style="width:100%; height:44px; z-index:1000; padding:10px 15px; border-bottom:1px solid rgba(255,255,255,0.2);;">
 
-                <div class="clearfix" style="margin-top:-5px;">
-                    <a href="https://www.facebook.com/Arquetitek/" target="_blank"
-                       class="social-icon si-small si-borderless si-facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
+            <div class="clearfix" style="margin-top:-5px;">
+                <a href="https://www.facebook.com/Arquetitek/" target="_blank"
+                   class="social-icon si-small si-borderless si-facebook">
+                    <i class="icon-facebook"></i>
+                    <i class="icon-facebook"></i>
+                </a>
 
-                    <a href="https://twitter.com/arquetitek" target="_blank"
-                       class="social-icon si-small si-borderless si-twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
+                <a href="https://twitter.com/arquetitek" target="_blank"
+                   class="social-icon si-small si-borderless si-twitter">
+                    <i class="icon-twitter"></i>
+                    <i class="icon-twitter"></i>
+                </a>
 
-                    <a href="#" class="social-icon si-small si-borderless si-pinterest">
-                        <i class="icon-pinterest"></i>
-                        <i class="icon-pinterest"></i>
-                    </a>
+                <a href="#" class="social-icon si-small si-borderless si-pinterest">
+                    <i class="icon-pinterest"></i>
+                    <i class="icon-pinterest"></i>
+                </a>
 
-                    <a href="https://www.instagram.com/arquetitek/" target="_blank"
-                       class="social-icon si-small si-borderless si-forrst">
-                        <i class="icon-instagram"></i>
-                        <i class="icon-instagram"></i>
-                    </a>
-
-                </div>
+                <a href="https://www.instagram.com/arquetitek/" target="_blank"
+                   class="social-icon si-small si-borderless si-forrst">
+                    <i class="icon-instagram"></i>
+                    <i class="icon-instagram"></i>
+                </a>
 
             </div>
 
-            <div id="header-wrap">
+        </div>
 
-                <div class="container clearfix">
+        <div id="header-wrap">
 
-                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <div class="container clearfix">
 
-                    <!-- Logo
-                    ============================================= -->
-                    <div id="logo">
-                        <a href="{% url 'index' %}" class="standard-logo" data-dark-logo="{% static 'images/logo.png' %}"><img
-                                src="{% static 'images/logo.png' %}" alt="Arquetitek"></a>
-                        <a href="{% url 'index' %}" class="retina-logo" data-dark-logo="{% static 'images/logo.png' %}"><img
-                                src="{% static 'images/logo.png' %}" alt="Arquetitek"></a>
-                    </div><!-- #logo end -->
+                <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-                    <!-- Primary Navigation
-                    ============================================= -->
-                    <nav id="primary-menu">
+                <!-- Logo
+                ============================================= -->
+                <div id="logo">
+                    <a href="{% url 'index' %}" class="standard-logo"
+                       data-dark-logo="{% static 'images/logo.png' %}"><img
+                            src="{% static 'images/logo.png' %}" alt="Arquetitek"></a>
+                    <a href="{% url 'index' %}" class="retina-logo" data-dark-logo="{% static 'images/logo.png' %}"><img
+                            src="{% static 'images/logo.png' %}" alt="Arquetitek"></a>
+                </div><!-- #logo end -->
 
-                        <ul>
-                            <li><a href="{% url 'index' %}">Home</a></li>
-                            <li><a href="{% url 'nosotros' %}"><div>Nosotros</div></a></li>
-                            <li><a href="{% url 'servicios' %}"><div>Servicios</div></a></li>
-                            <li><a href="{% url 'portafolio' %}"><div>Portafolio</div></a></li>
-                            <li><a href="{% url 'blog' %}"><div>Blog</div></a></li>
-                            <li><a href="{% url 'contacto' %}"><div>Contacto</div></a></li>
-                        </ul>
+                <!-- Primary Navigation
+                ============================================= -->
+                <nav id="primary-menu">
 
-                    </nav><!-- #primary-menu end -->
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'nosotros' %}">
+                            <div>Nosotros</div>
+                        </a></li>
+                        <li><a href="{% url 'servicios' %}">
+                            <div>Servicios</div>
+                        </a></li>
+                        <li><a href="{% url 'portafolio' %}">
+                            <div>Portafolio</div>
+                        </a></li>
+                        <li><a href="{% url 'blog' %}">
+                            <div>Blog</div>
+                        </a></li>
+                        <li><a href="{% url 'contacto' %}">
+                            <div>Contacto</div>
+                        </a></li>
+                    </ul>
 
-                </div>
+                </nav><!-- #primary-menu end -->
 
             </div>
 
-        </header>
+        </div>
+
+    </header>
     {% block main %}{% endblock main %}
-  <footer id="footer" class="dark">
+    <footer id="footer" class="dark">
 
         <div class="container">
 
@@ -180,11 +206,21 @@
 
                         <ul>
                             <li><a href="{% url 'index' %}">Home</a></li>
-                            <li><a href="{% url 'nosotros' %}"><div>Nosotros</div></a></li>
-                            <li><a href="{% url 'servicios' %}"><div>Servicios</div></a></li>
-                            <li><a href="{% url 'portafolio' %}"><div>Portafolio</div></a></li>
-                            <li><a href="{% url 'blog' %}"><div>Blog</div></a></li>
-                            <li><a href="{% url 'contacto' %}"><div>Contacto</div></a></li>
+                            <li><a href="{% url 'nosotros' %}">
+                                <div>Nosotros</div>
+                            </a></li>
+                            <li><a href="{% url 'servicios' %}">
+                                <div>Servicios</div>
+                            </a></li>
+                            <li><a href="{% url 'portafolio' %}">
+                                <div>Portafolio</div>
+                            </a></li>
+                            <li><a href="{% url 'blog' %}">
+                                <div>Blog</div>
+                            </a></li>
+                            <li><a href="{% url 'contacto' %}">
+                                <div>Contacto</div>
+                            </a></li>
                         </ul>
 
                     </div>
@@ -200,43 +236,13 @@
                             <div class="spost clearfix">
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        <h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+                                        {% for portafolio in mis_variables %}
+                                        <h4><a href="{% url 'portafolio-detalle' portafolio.slug %}">{{ portafolio}}</a></h4>
+                                        <div class="spost clearfix"></div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="spost clearfix">
-                                <div class="entry-c">
-                                    <div class="entry-title">
-                                        <h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
@@ -293,31 +299,38 @@
 
     </footer><!-- #footer end -->
 
-    </div><!-- #wrapper end -->
+</div><!-- #wrapper end -->
 
-	<div id="gotoTop" class="icon-angle-up"></div>
+<div id="gotoTop" class="icon-angle-up"></div>
 
-	<!-- External JavaScripts
-	============================================= -->
-	<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
+<!-- External JavaScripts
+============================================= -->
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/plugins.js' %}"></script>
 
-	<!-- Footer Scripts
-	============================================= -->
-	<script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
-    {% block extra_scripts %}{% endblock %}
+<!-- Footer Scripts
+============================================= -->
+<script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+{% block extra_scripts %}{% endblock %}
 
 
-    <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-102353098-1', 'auto');
-  ga('send', 'pageview');
+    ga('create', 'UA-102353098-1', 'auto');
+    ga('send', 'pageview');
 
 </script>
 
-  </body>
+</body>
 </html>

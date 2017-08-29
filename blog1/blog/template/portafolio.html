@@ -6,63 +6,54 @@
 {% block main %}
 
 
-    <div class="clear"></div>
+<div class="clear"></div>
 
-    <!-- Content
-    ============================================= -->
-    <section id="content">
+<section id="content">
 
-        <div class="content-wrap" style="padding: 1px 0 0 0;">
+    <div class="content-wrap">
 
-            <!-- Content
-           ============================================= -->
-            <section id="content">
+        <!-- portafolios
+         ============================================= -->
 
-                <div class="content-wrap">
-
-                    <!-- portafolios
-                     ============================================= -->
-                    <div id="portafolios" class="portafolio-grid grid-container portafolio-masonry portafolio-masonry-full clearfix">
-                        {% for portafolio in  object_list %}
-                            <div class="entry clearfix">
-                                {% if portafolio.imagen %}
-                                    <div class="entry-image">
-                                           <div class="entry-image">
-                                        </div>
-
-                                        <a href="{{ portafolio.imagen.url }}" data-lightbox="image"><img class="image_fade"
-                                                                                                   src="{{ portafolio.imagen.url }}"
-                                                                                                   alt="Standard portafolio with Image"></a>
-                                    </div>
-                                {% elif portafolio.video %}
-
-                                    <div class="entry-image">
-                                        <iframe width="560" height="315"
-                                                src="https://www.youtube.com/embed/{{ portafolio.video }}"
-                                                frameborder="0"
-                                                allowfullscreen></iframe>
-                                    </div>
-                                {% endif %}
-
-                                <div class="entry-title">
-                                    <h2><a><a href="{% url 'portafolio-detalle' portafolio.slug %}">{{ portafolio.titulo }}</a></a></h2>
-                                </div>
-                                <ul class="entry-meta clearfix">
-                                    <li>{{ portafolio.publicado }}</li>
-                                    <li>{{ portafolio.autor }}</li>
-                                    <li><a href="#"><i class="icon-camera-retro"></i></a></li>
-                                </ul>
-                                <div class="entry-content">
-                                    <p>{{ portafolio.descripcion }}</p>
-                                    <a href="{% url 'portafolio-detalle' portafolio.slug %}" class="more-link">Read More</a>
-                                </div>
-                            </div>
-
-                        {% endfor %}
+        <div id="posts" class="post-grid grid-container post-masonry post-masonry-full clearfix">
+            {% for portafolio in object_list %}
+            <div class="entry clearfix">
+                {% if portafolio.imagen %}
+                <div class="entry-image">
+                    <div class="entry-image">
                     </div>
 
+                    <a href="{{ portafolio.imagen.url }}" data-lightbox="image"><img class="image_fade"
+                                                                                     src="{{ portafolio.imagen.url }}"
+                                                                                     alt="Standard portafolio with Image"></a>
                 </div>
+                {% elif portafolio.video %}
 
-            </section>
+                <div class="entry-image">
+                    <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/{{ portafolio.video }}"
+                            frameborder="0"
+                            allowfullscreen></iframe>
+                </div>
+                {% endif %}
+
+                <div class="entry-title">
+                    <h2><a><a href="{% url 'portafolio-detalle' portafolio.slug %}">{{ portafolio.titulo }}</a></a></h2>
+                </div>
+                <ul class="entry-meta clearfix">
+                    <li>{{ portafolio.publicado }}</li>
+                    <li>{{ portafolio.autor }}</li>
+                    <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                </ul>
+                <div class="entry-content">
+                    <p>{{ portafolio.descripcion }}</p>
+                    <a href="{% url 'portafolio-detalle' portafolio.slug %}" class="more-link">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
 
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-<title>{% block title %}Arquetitek | Portafolio-Detalle{% endblock title %}</title>
+<title>{% block title %}Arquetitek | Portafolio-Detalle {% endblock title %}</title>
 
 {% block main %}
 <!-- Page Title
@@ -9,12 +9,7 @@
 <section id="page-title">
 
     <div class="container clearfix">
-        {% comment %}<h1>Portfolio Single - Gallery</h1>
-            <div id="portfolio-navigation">
-                <a href="#"><i class="icon-angle-left"></i></a>
-                <a href="#"><i class="icon-line-grid"></i></a>
-                <a href="#"><i class="icon-angle-right"></i></a>
-            </div>{% endcomment %}
+        <h1>{{ portafolio.titulo }}</h1>
     </div>
 
 </section><!-- #page-title end -->
@@ -34,36 +29,34 @@
                 ============================================= -->
 
                 {% if portafolio.photos_set.count %}
-                    <div class=" col_full portfolio-single-image">
-                        <div class="fslider" data-arrows="true" data-animation="slide">
-                            <div class="flexslider">
-                                <div class="slider-wrap">
-                                    {% if portafolio.imagen %}
-                                        <div class="slide"><a><img
-                                                src="{{ portafolio.imagen.url }}" alt=""></a>
-                                        </div>
-                                    {% endif %}
-                                    {% for photos in portafolio.photos_set.all %}
-                                        <div class="slide"><a><img
-                                                src="{{ photos.foto.url }}" alt=""></a>
-                                        </div>
-                                    {% endfor %}
+                <div class=" col_full portfolio-single-image">
+                    <div class="fslider" data-arrows="true" data-animation="slide">
+                        <div class="flexslider">
+                            <div class="slider-wrap">
+                                {% if portafolio.imagen %}
+                                <div class="slide"><a><img
+                                        src="{{ portafolio.imagen.url }}" alt=""></a>
                                 </div>
+                                {% endif %}
+                                {% for photos in portafolio.photos_set.all %}
+                                <div class="slide"><a><img
+                                        src="{{ photos.foto.url }}" alt=""></a>
+                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
+                </div>
                 {% elif portafolio.imagen %}
-                    <div class="entry-image bottommargin">
-                        <a><img src="{{ portafolio.imagen.url }}" alt="{{ portafolio.titulo }}"></a>
-                    </div><!-- .entry-image end -->
+                <div class="entry-image bottommargin">
+                    <a><img src="{{ portafolio.imagen.url }}" alt="{{ portafolio.titulo }}"></a>
+                </div><!-- .entry-image end -->
                 {% elif portafolio.video %}
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ portafolio.video }}"
-                            frameborder="0"
-                            allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ portafolio.video }}"
+                        frameborder="0"
+                        allowfullscreen></iframe>
 
                 {% endif %}
-
-
 
 
                 <!-- .portfolio-single-image end -->
@@ -129,7 +122,7 @@
                     <!-- Portfolio Single - Description
                     ============================================= -->
                     <div class="fancy-title title-dotted-border">
-                        <h2>Project Info:</h2>
+                        <h2>Project {{ portafolio.titulo }} Info:</h2>
                     </div>
                     {{ portafolio.contenido|safe }}
                 </div>
@@ -149,13 +142,16 @@
             <div id="related-portfolio" class="owl-carousel portfolio-carousel carousel-widget" data-margin="30"
                  data-nav="false" data-autoplay="5000" data-items-xxs="1" data-items-xs="2" data-items-sm="3"
                  data-items-lg="4">
+                {% for portafolio in mis_variables %}
                 <div class="oc-item">
                     <div class="iportfolio">
 
                         <div class="portfolio-image">
+
                             <a href="{% url 'portafolio' %}">
                                 <img src="{{ portafolio.imagen.url }}" alt="Open Imagination">
                             </a>
+
                             <div class="portfolio-overlay">
                                 <a href="{{ portafolio.imagen.url }}" class="left-icon"
                                    data-lightbox="image"><i
@@ -163,11 +159,13 @@
                                 <a href="{% url 'portafolio-detalle' portafolio.slug %}" class="right-icon"><i
                                         class="icon-line-ellipsis"></i></a>
                             </div>
+
                         </div><!-- .portfolio-carousel end -->
 
                     </div>
 
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>

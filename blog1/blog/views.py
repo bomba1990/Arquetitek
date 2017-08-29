@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from django.views import generic
-from django.views.generic import DetailView, TemplateView
-
-from blog.models import Post, Foto, Portafolio, Photos
+from django.views.generic import DetailView
+from .models import Post, Foto, Portafolio, Photos
 from django.views.generic.list import ListView
 
 
@@ -15,8 +13,9 @@ class Blog(ListView):
     paginate_by = 6
     context_object_name = "post_list"
 
-    def get_queryset(self, **kwargs):
-        return Post.objects.filter(presentar=True).order_by("-publicado")
+
+def get_queryset(self, **kwargs):
+    return Post.objects.filter(presentar=True).order_by("-publicado")
 
 
 class BlogDetailView(DetailView):
@@ -56,15 +55,6 @@ def nosotros(request):
 
 def servcios(request):
     return render(request, 'servicios.html', )
-
-
-#
-# def portafolio(request):
-#     return render(request, 'portafolio.html', )
-
-
-# def portafolio_detail(request):
-#     return render(request, 'portafolio-detalle.html', )
 
 
 def contacto(request):

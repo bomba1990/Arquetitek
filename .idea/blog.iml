@@ -9,6 +9,7 @@
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/blog1/staticfiles/ckeditor/ckeditor/plugins/templates" />
+        <option value="$MODULE_DIR$/blog1/blog/template" />
       </list>
     </option>
   </component>
