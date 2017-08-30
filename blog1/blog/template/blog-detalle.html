@@ -87,7 +87,7 @@
 
                         <!-- Post Single - Share
                         ============================================= -->
-                        <div class="si-share noborder clearfix">
+                        <!--<div class="si-share noborder clearfix">
                             <span>Compártelo:</span>
                             <div>
                                 <a href="#" class="social-icon si-borderless si-facebook">
@@ -115,7 +115,7 @@
                                     <i class="icon-email3"></i>
                                 </a>
                             </div>
-                        </div><!-- Post Single - Share End -->
+                        </div>&lt;!&ndash; Post Single - Share End &ndash;&gt;-->
 
                     </div>
                 </div><!-- .entry end -->
@@ -128,17 +128,38 @@
             <div class="sidebar nobottommargin col_last clearfix">
                 <div class="sidebar-widgets-wrap">
 
-                    <div class="widget widget-twitter-feed clearfix">
+                    <!--
 
                         <h4>Twitter Feed</h4>
                         <ul class="iconlist twitter-feed" data-username="envato" data-count="2">
                             <li></li>
                         </ul>
 
+                        	<a class="twitter-timeline" href="https://twitter.com/arquetitek"><h4>Tweets by Arquetitek</h4></a>
+								<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
                         <a href="#" class="btn btn-default btn-sm fright">Follow Us on Twitter</a>
 
+                    </div>-->
+                    <div class="widget widget-twitter-feed clearfix">
+                     <div style="height:500px; overflow:scroll;">
+								<a class="twitter-timeline" href="https://twitter.com/arquetitek"><h4>Tweets by Arquetitek</h4></a>
+								<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                     </div>
                     </div>
 
+                    <div class="widget clearfix">
+
+								<h4>Instagram Arquetitek</h4>
+                            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                            <iframe src="https://snapwidget.com/embed/430556" class="snapwidget-widget" allowTransparency="false" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"></iframe>
+
+
+							</div>
+
+                    </div>
 
                     <div class="widget clearfix">
                         {% for post in mis_post %}
