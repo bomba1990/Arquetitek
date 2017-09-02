@@ -9,7 +9,6 @@ from django.views.generic.list import ListView
 from .forms import Formulario
 from .models import Post, Foto, Portafolio, Photos
 
-
 # Create your views here.
 
 
@@ -73,39 +72,13 @@ def contacto(request):
             telefono = formulario.cleaned_data['telefono']
             mensaje = formulario.cleaned_data['mensaje']
             ctx = {'nombre': nombre, 'email': email, 'telefono': telefono, 'mensaje': mensaje}
-            message_html = render_to_string('datos_email_admin', ctx)
-            mail = EmailMultiAlternatives(asunto, message_html, to=['juniorrivasmendoza@gmail.com'])
+            message_html = render_to_string('datos_mail_admin.html', ctx)
+            mail = EmailMultiAlternatives(asunto, message_html, cc=(email,), to=['juniorrivasmendoza@gmail.com'])
             mail.attach_alternative(message_html, 'text/html')
             mail.send()
+            messages.success(request, 'MENSAJE ENVIADO.')
         return HttpResponseRedirect('/')
     else:
         formulario = Formulario()
-        messages.success(request, 'Profile details updated.')
-
-    return render(request, 'contacto.html', {'formulario': formulario})
-
-
-# def contacto(request):
-#     if request.method == 'POST':
-#         form = Formulario(request.POST)
-#         if form.is_valid():
-#             return HttpResponseRedirect('contacto.html')
-#     else:
-#         form = Formulario()
-#     return render(request, 'contacto.html', {'form': form})
-
-
-# def contacto(request):
-#     if request.method == 'POST':
-#         form = Formulario(request.POST)
-#         if form.is_valid():
-#             asunto = 'Mensaje de Arquetitek'
-#             nombre = form.cleaned_data['nombre']
-#             telefono = form.cleaned_data['telefono']
-#             mensaje = form.cleaned_data['mensaje']
-#             mail = EmailMessage(asunto, mensaje, nombre, telefono, to=['juniorrivasmendoza@gamil.com'])
-#             mail.send()
-#         return HttpResponseRedirect('index.html')
-#     else:
-#         form = Formulario(initial={'mensaje': '¡Adoro tu sitio!'})
-#     return render(request, 'contacto.html', {'form': form})
+    messages.success(request, 'MENSAJE ENVIADO.')
+    return render(request, 'contacto.html', {'formulario': formulario},)
