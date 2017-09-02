@@ -8,6 +8,7 @@ from .models import Post, Foto, Portafolio, Photos
 from django.views.generic.list import ListView
 from django.core.mail import EmailMessage, send_mail, EmailMultiAlternatives
 from django.contrib import messages
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -70,9 +71,11 @@ def contacto(request):
             nombre = formulario.cleaned_data['nombre']
             email = formulario.cleaned_data['email']
             telefono = formulario.cleaned_data['telefono']
-            mensaje = "Nombre: %s\n Email: %s\n Telefono: %s\n Mensaje: %s" % (nombre, email, telefono, formulario.
-                                                                                             cleaned_data['mensaje'])
-            mail = EmailMessage(asunto, mensaje, to=['juniorrivasmendoza@gmail.com'])
+            mensaje = formulario.cleaned_data['mensaje']
+            ctx = {'nombre': nombre, 'email': email, 'telefono': telefono, 'mensaje': mensaje}
+            message_html = render_to_string('datos_email_admin', ctx)
+            mail = EmailMultiAlternatives(asunto, message_html, to=['juniorrivasmendoza@gmail.com'])
+            mail.attach_alternative(message_html, 'text/html')
             mail.send()
         return HttpResponseRedirect('/')
     else:
