@@ -1,8 +1,13 @@
-from django.shortcuts import render
-from django.views.generic import DetailView
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, render_to_response
+from django.template import RequestContext, context
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, FormView
+from .forms import Formulario
 from .models import Post, Foto, Portafolio, Photos
 from django.views.generic.list import ListView
-
+from django.core.mail import EmailMessage, send_mail, EmailMultiAlternatives
+from django.contrib import messages
 
 # Create your views here.
 
@@ -58,4 +63,46 @@ def servcios(request):
 
 
 def contacto(request):
-    return render(request, 'contacto.html', )
+    if request.method == 'POST':
+        formulario = Formulario(request.POST)
+        if formulario.is_valid():
+            asunto = 'Mensaje de Arquetitek'
+            nombre = formulario.cleaned_data['nombre']
+            email = formulario.cleaned_data['email']
+            telefono = formulario.cleaned_data['telefono']
+            mensaje = "Nombre: %s\n Email: %s\n Telefono: %s\n Mensaje: %s" % (nombre, email, telefono, formulario.
+                                                                                             cleaned_data['mensaje'])
+            mail = EmailMessage(asunto, mensaje, to=['juniorrivasmendoza@gmail.com'])
+            mail.send()
+        return HttpResponseRedirect('/')
+    else:
+        formulario = Formulario()
+        messages.success(request, 'Profile details updated.')
+
+    return render(request, 'contacto.html', {'formulario': formulario})
+
+
+# def contacto(request):
+#     if request.method == 'POST':
+#         form = Formulario(request.POST)
+#         if form.is_valid():
+#             return HttpResponseRedirect('contacto.html')
+#     else:
+#         form = Formulario()
+#     return render(request, 'contacto.html', {'form': form})
+
+
+# def contacto(request):
+#     if request.method == 'POST':
+#         form = Formulario(request.POST)
+#         if form.is_valid():
+#             asunto = 'Mensaje de Arquetitek'
+#             nombre = form.cleaned_data['nombre']
+#             telefono = form.cleaned_data['telefono']
+#             mensaje = form.cleaned_data['mensaje']
+#             mail = EmailMessage(asunto, mensaje, nombre, telefono, to=['juniorrivasmendoza@gamil.com'])
+#             mail.send()
+#         return HttpResponseRedirect('index.html')
+#     else:
+#         form = Formulario(initial={'mensaje': '¡Adoro tu sitio!'})
+#     return render(request, 'contacto.html', {'form': form})

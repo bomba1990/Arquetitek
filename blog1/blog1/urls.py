@@ -18,4 +18,5 @@ urlpatterns = [
                   url(r'^blog$', views.Blog.as_view(), name='blog'),
                   url(r'^posts/(?P<slug>[-\w]+)/$', views.BlogDetailView.as_view(), name='post'),
                   url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+                  # url(r'^contactomail/$', views.contactomail, name='contactomail'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

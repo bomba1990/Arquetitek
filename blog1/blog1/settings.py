@@ -136,3 +136,10 @@ STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/'),
 # CKEDITOR_FILENAME_GENERATOR = 'utils.get_imagen'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'juniorrivasmendoza@gmail.com'
+EMAIL_HOST_PASSWORD = 'hola2005.8'
+EMAIL_USE_TLS = True
