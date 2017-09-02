@@ -126,7 +126,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'assets'),)
 
-CKEDITOR_UPLOAD_PATH = "blog/fotos/"
+CKEDITOR_UPLOAD_PATH = "media/fotos/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
 # Restringir la subida de archivos
