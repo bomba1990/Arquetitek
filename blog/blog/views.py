@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.core.mail import EmailMultiAlternatives
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.views.generic import DetailView
@@ -77,8 +77,10 @@ def contacto(request):
             mail = EmailMultiAlternatives(asunto, message_html, cc=(email,), to=['juniorrivasmendoza@gmail.com'])
             mail.attach_alternative(message_html, 'text/html')
             mail.send()
-            messages.success(request, 'Su mensaje fue enviado con Exito')
-            return HttpResponseRedirect('contacto.html')
+            messages.success(request, 'Su mensaje fue enviado con Exito', extra_tags='alert')
+            return HttpResponseRedirect('index.html')
+        else:
+            messages.warning(request, 'Please correct the error below.')
     else:
         formulario = Formulario()
     return render(request, 'contacto.html', {'formulario': formulario}, )

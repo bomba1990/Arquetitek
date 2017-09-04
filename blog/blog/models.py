@@ -1,9 +1,7 @@
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.db import models
-from django.forms import ModelForm, forms
-from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
-from django.contrib import admin
+from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils import timezone
 
 
