@@ -11,8 +11,6 @@ from .models import Post, Foto, Portafolio, Photos
 
 
 # Create your views here.
-
-
 class Blog(ListView):
     model = Post
     template_name = 'blog.html'
