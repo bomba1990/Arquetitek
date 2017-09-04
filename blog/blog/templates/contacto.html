@@ -29,13 +29,22 @@
             <!-- Postcontent
             ============================================= -->
             <div class="postcontent nobottommargin">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li
+                            {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
 
                 <h3>Envíenos un mensaje</h3>
 
                 <div class="contact-widget">
 
 
-                    <form class="nobottommargin"  method="post"> {% csrf_token %}
+                    <form class="nobottommargin" method="post"> {% csrf_token %}
 
                         <div class="form-process"></div>
 
@@ -57,19 +66,20 @@
                         </div>
 
                         <div class="col_one_third col_last">
-                             <label for="id_telefono">Teléfono</label>
+                            <label for="id_telefono">Teléfono</label>
                             {{ formulario.telefono }}
-                         </div>
+                        </div>
 
                         <div class="col_full">
-                             <label for="id_mensaje">Mensaje
-                                 <small>*</small>
-                             </label>
-                             {{ formulario.mensaje }}
-                         </div>
+                            <label for="id_mensaje">Mensaje
+                                <small>*</small>
+                            </label>
+                            {{ formulario.mensaje }}
+                        </div>
 
 
-                        <input class="button button-3d nomargin"  type="submit" value="Enviar Mensaje"/>
+                        <input class="button button-3d nomargin" type="submit" value="Enviar Mensaje"/>
+
                     </form>
 
                 </div>

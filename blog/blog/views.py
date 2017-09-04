@@ -9,6 +9,7 @@ from django.views.generic.list import ListView
 from .forms import Formulario
 from .models import Post, Foto, Portafolio, Photos
 
+
 # Create your views here.
 
 
@@ -76,9 +77,8 @@ def contacto(request):
             mail = EmailMultiAlternatives(asunto, message_html, cc=(email,), to=['juniorrivasmendoza@gmail.com'])
             mail.attach_alternative(message_html, 'text/html')
             mail.send()
-            messages.success(request, 'MENSAJE ENVIADO.')
-        return HttpResponseRedirect('/')
+            messages.success(request, 'Su mensaje fue enviado con Exito')
+            return HttpResponseRedirect('contacto.html')
     else:
         formulario = Formulario()
-    messages.success(request, 'MENSAJE ENVIADO.')
-    return render(request, 'contacto.html', {'formulario': formulario},)
+    return render(request, 'contacto.html', {'formulario': formulario}, )

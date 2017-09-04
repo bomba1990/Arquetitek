@@ -8,8 +8,8 @@
   <component name="TemplatesService">
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/blog1/staticfiles/ckeditor/ckeditor/plugins/templates" />
-        <option value="$MODULE_DIR$/blog1/blog/template" />
+        <option value="$MODULE_DIR$/blog/templates" />
+        <option value="$MODULE_DIR$/blog/blog/templates" />
       </list>
     </option>
   </component>
