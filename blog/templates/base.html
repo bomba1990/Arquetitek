@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load compress %}
 <html>
 <head>
     {% load static %}
@@ -8,6 +9,8 @@
       ============================================= -->
     <link rel="stylesheet" type="text/css"
           href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"/>
+
+    {% compress css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/dark.css' %}"/>
@@ -16,24 +19,21 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}"/>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css'%}"/>
+    {% endcompress %}
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <!--[if lt IE 9]>
     <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
     <![endif]-->
 
-    <!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'rs-plugin/css/settings.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/layers.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/navigation.css' %}">
+    {% block extra_styles %}
+    {% endblock %}
 
     <!-- Document Title
      ============================================= -->
-    <style> {
-    %
-    block
-    style
-    %
-    }
+{% compress css inline %}
+    <style>
+
+        {%  block style  %}
 
     .revo-slider-emphasis-text {
         font-size: 64px;
@@ -68,11 +68,10 @@
         white-space: nowrap;
     }
 
-    {
-    %
-    endblock
-    %
-    }</style>
+    {% endblock %}
+
+    </style>
+{% endcompress %}
 
     <title>{% block title %}Arquetitek{% endblock title %}</title>
 </head>
@@ -304,6 +303,7 @@
 
 <div id="gotoTop" class="icon-angle-up"></div>
 
+{% compress js %}
 <!-- External JavaScripts
 ============================================= -->
 <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
@@ -312,6 +312,7 @@
 <!-- Footer Scripts
 ============================================= -->
 <script type="text/javascript" src="{% static 'js/functions.js' %}"></script>
+{% endcompress %}
 {% block extra_scripts %}{% endblock %}
 
 

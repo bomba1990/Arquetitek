@@ -339,8 +339,19 @@
 
     </section><!-- #content end -->
 {% endblock %}
+{% load compress %}
+
+{% block extra_styles %}
+<!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+    {% compress css %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'rs-plugin/css/settings.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/layers.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'rs-plugin/css/navigation.css' %}">
+    {% endcompress %}
+{% endblock %}
 {% block extra_scripts %}
     <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+    {% compress js %}
 	<script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
     <script type="text/javascript" src="{%  static 'rs-plugin/js/extensions/revolution.extension.video.min.js' %}"></script>
@@ -351,6 +362,8 @@
 	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.navigation.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.migration.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'rs-plugin/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+    {% endcompress %}
+    {% compress js %}
     <script type="text/javascript">
 
 		var tpj=jQuery;
@@ -464,4 +477,5 @@
 		}); //END REVOLUTION SLIDER
 
 	</script>
+    {% endcompress %}
 {% endblock %}

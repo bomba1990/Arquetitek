@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'PIL',
+    "compressor",
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,22 @@ EMAIL_HOST_USER = get_env_variable("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = get_env_variable("EMAIL_HOST_PASSWORD")
 
 EMAIL_USE_TLS = True
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cleancss.CleanCSSFilter'
+]
+
+COMPRESS_CLEAN_CSS_BINARY = os.path.join(os.path.dirname(BASE_DIR), "node_modules/clean-css-cli/bin/cleancss")
+
+COMPRESS_CLEAN_CSS_ARGUMENTS = ""
+
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter'
+]

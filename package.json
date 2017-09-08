@@ -1,0 +1,23 @@
+{
+  "name": "arquetitek",
+  "version": "1.0.0",
+  "description": "export DJANGO_SETTINGS_MODULE=config.settings.local_development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bomba1990/Arquetitek.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bomba1990/Arquetitek/issues"
+  },
+  "homepage": "https://github.com/bomba1990/Arquetitek#readme",
+  "dependencies": {
+    "clean-css": "4.1.8",
+    "clean-css-cli": "4.1.9"
+  }
+}
