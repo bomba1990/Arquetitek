@@ -1,0 +1,15 @@
+version: '3'
+services:
+  django:
+    build:
+      context: .
+      args:
+        - REQUIREMENTS=production.txt
+    command:  /code/run/run_production.sh
+    volumes:
+      - ./:/code
+    working_dir: /code/blog
+    env_file: ./conf/ServerEnv
+    ports:
+      - "9090:9090"
+
