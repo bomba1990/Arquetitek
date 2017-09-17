@@ -9,4 +9,4 @@ python manage.py compress
 python manage.py collectstatic --noinput
 python manage.py migrate
 
-uwsgi --ini /code/conf/uwsgi.ini
+uwsgi --ini ../conf/uwsgi.ini
