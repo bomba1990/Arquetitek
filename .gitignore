@@ -61,7 +61,6 @@ local_testing.py
 *.pyc
 *.~
 *.swp
-static/
 erl_crash.dump
 local_settings_production.py
 *.db
@@ -110,4 +109,6 @@ node_modules/
 webpack-stats-local.json
 ahsante/assets/bundles/local/
 
-!static/CACHE/css/*.css
+
+!static/CACHE/
+static/
