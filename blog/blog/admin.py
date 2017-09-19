@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Post, UserProfile, Foto, Portafolio, Photos
+from .models import Post, Foto, Portafolio, Photos
 
 
 # Register your models here.
@@ -18,10 +18,9 @@ class PhotosInline(admin.TabularInline):
     model = Photos
 
 
-class PostAdminPhoto(admin.ModelAdmin):
+class PortafolioAdmin(admin.ModelAdmin):
     inlines = [PhotosInline, ]
-    list_display = ['titulo', 'imagen', 'publicado', 'autor']
+    list_display = ['titulo', 'imagen', 'autor']
 
-admin.site.register(UserProfile)
 admin.site.register(Post, PostAdmin)
-admin.site.register(Portafolio, PostAdminPhoto)
+admin.site.register(Portafolio, PortafolioAdmin)
