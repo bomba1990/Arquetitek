@@ -24,14 +24,14 @@ class Post(BaseModel):
     video = models.CharField(max_length=200, blank=True)
     slug = models.SlugField(unique=True, editable=False)
     author = models.ForeignKey(get_user_model())
-    published = models.DateField(auto_now_add=True)
+    published = models.DateField()
 
     def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.slug = slugify(self.title)
+            self.slug = slugify(self.title)[:50]
         super(Post, self).save(*args, **kwargs)
 
 
@@ -62,7 +62,7 @@ class Portfolio(BaseModel):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.slug = slugify(self.title)
+            self.slug = slugify(self.title)[:50]
         super(Portfolio, self).save(*args, **kwargs)
 
 
