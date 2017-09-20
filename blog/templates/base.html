@@ -242,7 +242,7 @@
                                 <div class="entry-c">
                                     <div class="entry-title">
                                         {% for obj in context_post %}
-                                        <h4><a href="{% url 'post-detail' obj.slug %}">{{ obj }}</a>
+                                        <h4><a href="{% url 'post' obj.slug %}">{{ obj }}</a>
                                         </h4>
                                         <div class="spost clearfix"></div>
                                         {% endfor %}
