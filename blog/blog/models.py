@@ -18,7 +18,7 @@ def upload_fotos(instance, filename):
 
 class Post(BaseModel):
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    description = models.TextField()
     content = RichTextUploadingField()
     image = models.ImageField(upload_to=upload_fotos, blank=True)
     video = models.CharField(max_length=200, blank=True)
@@ -46,7 +46,7 @@ class PostPhoto(BaseModel):
 
 class Portfolio(BaseModel):
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    description =  models.TextField()
     content = RichTextUploadingField()
     image = models.ImageField(upload_to=upload_fotos, blank=True)
     video = models.CharField(max_length=200, blank=True)
