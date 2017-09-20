@@ -52,8 +52,7 @@
                 </div>
                 <ul class="entry-meta clearfix">
                     <li>{{ post.published }}</li>
-                    <li>{{ post.author }}</li>
-                    <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                    <li>{{ post.author.get_full_name }}</li>
                 </ul>
                 <div class="entry-content">
                     <p>{{ post.description }}</p>
