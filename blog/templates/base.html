@@ -3,6 +3,9 @@
 <html>
 <head>
     {% load static %}
+    <title>{% block page_title %}{% endblock %} Arquetitek</title>
+    {% block meta_tags %}
+    {% endblock %}
 
     <meta charset="utf-8">
     <!-- Stylesheets
@@ -73,7 +76,7 @@
     </style>
 {% endcompress %}
 
-    <title>{% block title %}Arquetitek{% endblock title %}</title>
+
 </head>
 <body class="stretched">
 <div id="wrapper" class="clearfix">
@@ -158,6 +161,7 @@
         </div>
 
     </header>
+<div class="clearfix"></div>
     {% block main %}{% endblock main %}
     <footer id="footer" class="dark">
 
