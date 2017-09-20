@@ -235,14 +235,14 @@
                 <div class="col_one_third col_last">
 
                     <div class="widget clearfix">
-                        <h4>Trabajos Recientes</h4>
+                        <h4>ÚLTIMOS POST</h4>
 
                         <div id="post-list-footer">
                             <div class="spost clearfix">
                                 <div class="entry-c">
                                     <div class="entry-title">
-                                        {% for portfolio in content_portfolio %}
-                                        <h4><a href="{% url 'portfolio-detail' portfolio.slug %}">{{ portfolio }}</a>
+                                        {% for obj in context_post %}
+                                        <h4><a href="{% url 'post-detail' obj.slug %}">{{ obj }}</a>
                                         </h4>
                                         <div class="spost clearfix"></div>
                                         {% endfor %}

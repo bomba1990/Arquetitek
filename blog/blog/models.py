@@ -28,6 +28,7 @@ class Post(BaseModel):
 
     class Meta:
         ordering = ["-published"]
+
     def __str__(self):
         return self.title
 
@@ -48,7 +49,7 @@ class PostPhoto(BaseModel):
 
 class Portfolio(BaseModel):
     title = models.CharField(max_length=200)
-    description =  models.TextField()
+    description = models.TextField()
     content = RichTextUploadingField()
     image = models.ImageField(upload_to=upload_fotos, blank=True)
     video = models.CharField(max_length=200, blank=True)
