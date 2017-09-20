@@ -34,8 +34,8 @@
                     <div class="entry-image">
                     </div>
 
-                    <a href="{{ post.imagen.url }}" data-lightbox="image"><img class="image_fade"
-                                                                               src="{{ post.imagen.url }}"
+                    <a href="{{ post.image.url }}" data-lightbox="image"><img class="image_fade"
+                                                                               src="{{ post.image.url }}"
                                                                                alt="Standard Post with Image"></a>
                 </div>
                 {% elif post.video %}
@@ -48,15 +48,15 @@
                 {% endif %}
 
                 <div class="entry-title">
-                    <h2><a href="{% url 'post' post.slug %}">{{ post.titulo }}</a></h2>
+                    <h2><a href="{% url 'post' post.slug %}">{{ post.title }}</a></h2>
                 </div>
                 <ul class="entry-meta clearfix">
-                    <li>{{ post.publicado }}</li>
-                    <li>{{ post.autor }}</li>
+                    <li>{{ post.published }}</li>
+                    <li>{{ post.author }}</li>
                     <li><a href="#"><i class="icon-camera-retro"></i></a></li>
                 </ul>
                 <div class="entry-content">
-                    <p>{{ post.descripcion }}</p>
+                    <p>{{ post.description }}</p>
                     <a href="{% url 'post' post.slug %}" class="more-link">Read More</a>
                 </div>
             </div>

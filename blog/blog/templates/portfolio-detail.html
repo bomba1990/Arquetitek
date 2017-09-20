@@ -9,7 +9,7 @@
 <section id="page-title">
 
     <div class="container clearfix">
-        <h1>{{ portafolio.titulo }}</h1>
+        <h1>{{ portfolio.title }}</h1>
     </div>
 
 </section><!-- #page-title end -->
@@ -28,31 +28,31 @@
                 <!-- Portfolio Single Gallery
                 ============================================= -->
 
-                {% if portafolio.photos_set.count %}
+                {% if portfolio.photo_set.count %}
                 <div class=" col_full portfolio-single-image">
                     <div class="fslider" data-arrows="true" data-animation="slide">
                         <div class="flexslider">
                             <div class="slider-wrap">
-                                {% if portafolio.imagen %}
+                                {% if portfolio.image %}
                                 <div class="slide"><a><img
-                                        src="{{ portafolio.imagen.url }}" alt=""></a>
+                                        src="{{ portfolio.image.url }}" alt=""></a>
                                 </div>
                                 {% endif %}
-                                {% for photos in portafolio.photos_set.all %}
+                                {% for photoportfolio in portfolio.photoportfolio_set.all %}
                                 <div class="slide"><a><img
-                                        src="{{ photos.foto.url }}" alt=""></a>
+                                        src="{{ photoportfolio.photo.url }}" alt=""></a>
                                 </div>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
-                {% elif portafolio.imagen %}
+                {% elif portfolio.image %}
                 <div class="entry-image bottommargin">
-                    <a><img src="{{ portafolio.imagen.url }}" alt="{{ portafolio.titulo }}"></a>
+                    <a><img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}"></a>
                 </div><!-- .entry-image end -->
-                {% elif portafolio.video %}
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ portafolio.video }}"
+                {% elif portfolio.video %}
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ portfolio.video }}"
                         frameborder="0"
                         allowfullscreen></iframe>
 
@@ -68,11 +68,11 @@
                     <div class="panel panel-default events-meta">
                         <div class="panel-body">
                             <ul class="portfolio-meta nobottommargin">
-                                <li><span><i class="icon-user"></i>Created by:</span> {{ portafolio.create }}</li>
+                                <li><span><i class="icon-user"></i>Created by:</span> {{ portfolio.create }}</li>
                                 <li><span><i
-                                        class="icon-calendar3"></i>Completed on:</span> {{ portafolio.completed }}
+                                        class="icon-calendar3"></i>Completed on:</span> {{ portfolio.completed }}
                                 </li>
-                                <li><span><i class="icon-lightbulb"></i>Skills:</span> {{ portafolio.skills }}</li>
+                                <li><span><i class="icon-lightbulb"></i>Skills:</span> {{ portfolio.skills }}</li>
                                 <li><span><i class="icon-link"></i>Client:</span> <a
                                         href="#">{{ portafolio.client }}</a></li>
                             </ul>
@@ -134,9 +134,9 @@
                     <!-- Portfolio Single - Description
                     ============================================= -->
                     <div class="fancy-title title-dotted-border">
-                        <h2>Project {{ portafolio.titulo }} Info:</h2>
+                        <h2>Project {{ portfolio.title }} Info:</h2>
                     </div>
-                    {{ portafolio.contenido|safe }}
+                    {{ portfolio.content|safe }}
                 </div>
                 <!-- Portfolio Single - Description End -->
 
@@ -154,21 +154,21 @@
             <div id="related-portfolio" class="owl-carousel portfolio-carousel carousel-widget" data-margin="30"
                  data-nav="false" data-autoplay="5000" data-items-xxs="1" data-items-xs="2" data-items-sm="3"
                  data-items-lg="4">
-                {% for portafolio in mis_variables %}
+                {% for portfolio in content_portfolio %}
                 <div class="oc-item">
                     <div class="iportfolio">
 
                         <div class="portfolio-image">
 
-                            <a href="{% url 'portafolio' %}">
-                                <img src="{{ portafolio.imagen.url }}" alt="Open Imagination">
+                            <a href="{% url 'portfolio' %}">
+                                <img src="{{ portfolio.image.url }}" alt="Open Imagination">
                             </a>
 
                             <div class="portfolio-overlay">
-                                <a href="{{ portafolio.imagen.url }}" class="left-icon"
+                                <a href="{{ portfolio.image.url }}" class="left-icon"
                                    data-lightbox="image"><i
                                         class="icon-line-plus"></i></a>
-                                <a href="{% url 'portafolio-detalle' portafolio.slug %}" class="right-icon"><i
+                                <a href="{% url 'portafolio-detail' portfolio.slug %}" class="right-icon"><i
                                         class="icon-line-ellipsis"></i></a>
                             </div>
 

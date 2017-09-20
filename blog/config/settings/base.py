@@ -15,6 +15,7 @@ from . import get_env_variable
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -64,8 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'blog.context_variable.mis_variables',
-                'blog.context_variable.mis_post',
+                'blog.context_variable.content_portfolio',
             ],
         },
     },

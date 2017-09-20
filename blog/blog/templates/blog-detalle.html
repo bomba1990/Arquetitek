@@ -22,19 +22,19 @@
                 <!-- Entry Image
 
                ============================================= -->
-                {% if post.foto_set.count %}
+                {% if post.postphoto_set.count %}
                 <div class=" col_full portfolio-single-image">
                     <div class="fslider" data-arrows="true" data-animation="slide">
                         <div class="flexslider">
                             <div class="slider-wrap">
-                                {% if post.imagen %}
+                                {% if post.image %}
                                 <div class="slide"><a><img
-                                        src="{{ post.imagen.url }}" alt=""></a>
+                                        src="{{ post.image.url }}" alt=""></a>
                                 </div>
                                 {% endif %}
-                                {% for foto in post.foto_set.all %}
+                                {% for postphoto in post.postphoto_set.all %}
                                 <div class="slide"><a><img
-                                        src="{{ foto.foto.url }}" alt=""></a>
+                                        src="{{ postphoto.postphoto.url }}" alt=""></a>
                                 </div>
                                 {% endfor %}
                             </div>
@@ -45,9 +45,9 @@
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ post.video }}"
                         frameborder="0"
                         allowfullscreen></iframe>
-                {% elif post.imagen %}
+                {% elif post.image %}
                 <div class="entry-image bottommargin">
-                    <a><img src="{{ post.imagen.url }}" alt="{{ post.titulo }}"></a>
+                    <a><img src="{{ post.image.url }}" alt="{{ post.title }}"></a>
                 </div><!-- .entry-image end -->
 
             </div>
@@ -66,22 +66,22 @@
                     <!-- Entry Title
                     ============================================= -->
                     <div class="entry-title">
-                        <h2>{{ post.titulo }}</h2><br>
+                        <h2>{{ post.title }}</h2><br>
                     </div><!-- .entry-title end -->
 
                     <!-- Entry Meta
                     ============================================= -->
                     <ul class="entry-meta clearfix">
-                        <li> {{ post.publicado }}</li>
-                        <li> {{ post.autor }}</li>
-                        <li> {{ post.descripcion }}</li>
+                        <li> {{ post.published }}</li>
+                        <li> {{ post.author }}</li>
+                        <li> {{ post.description }}</li>
                     </ul><!-- .entry-meta end -->
 
                     <!-- Entry Content
                     ============================================= -->
                     <div class="entry-content notopmargin">
 
-                        <p>{{ post.contenido|safe }}</p>
+                        <p>{{ post.content|safe }}</p>
 
                         <!-- Post Single - Content End -->
 
@@ -162,7 +162,7 @@
                     </div>
 
                     <div class="widget clearfix">
-                        {% for post in mis_post %}
+                        {% for post in content_portfolio %}
                         <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
                             <div class="tab-container">
 
@@ -171,12 +171,12 @@
                                         <div class="spost clearfix">
                                             <div class="entry-image">
                                                 <a href="#" class="nobg"><img class="img-circle"
-                                                                              src="{{ post.imagen.url }}"
+                                                                              src="{{ post.image.url }}"
                                                                               alt=""></a>
                                             </div>
                                             <div class="entry-c">
                                                 <div class="entry-title">
-                                                    <h4><a href="{% url 'post' post.slug %}">{{ post.titulo }}</a>
+                                                    <h4><a href="{% url 'post' post.slug %}">{{ post.title }}</a>
                                                     </h4>
                                                 </div>
                                                 <ul class="entry-meta">

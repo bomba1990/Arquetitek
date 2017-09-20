@@ -6,8 +6,8 @@ from django.template.loader import render_to_string
 from django.views.generic import DetailView
 from django.views.generic.list import ListView
 
-from .forms import Formulario
-from .models import Post, Foto, Portafolio, Photos
+from .forms import Form
+from .models import Post, PostPhoto, Portfolio, PhotoPortfolio
 
 
 # Create your views here.
@@ -19,7 +19,7 @@ class Blog(ListView):
 
 
 def get_queryset(self, **kwargs):
-    return Post.objects.filter(presentar=True).order_by("-publicado")
+    return Post.objects.filter(presentar=True).order_by("-published")
 
 
 class BlogDetailView(DetailView):
@@ -29,56 +29,56 @@ class BlogDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
-        context["galeria"] = Foto.objects.filter(post=self.object)
+        context["gallery"] = PostPhoto.objects.filter(post=self.object)
         return context
 
 
-class PortafolioView(ListView):
-    model = Portafolio
-    template_name = 'portafolio.html'
+class PortfolioView(ListView):
+    model = Portfolio
+    template_name = 'portfolio.html'
     paginate_by = 6
 
 
-class PortaDetailView(DetailView):
-    model = Portafolio
-    template_name = 'portafolio-detalle.html'
+class PortfolioDetailView(DetailView):
+    model = Portfolio
+    template_name = 'portfolio-detail.html'
 
     def get_context_data(self, **kwargs):
-        context = super(PortaDetailView, self).get_context_data(**kwargs)
-        context["galeria"] = Photos.objects.filter(portafolio=self.object)
+        context = super(PortfolioDetailView, self).get_context_data(**kwargs)
+        context["gallery"] = PhotoPortfolio.objects.filter(portfolio=self.object)
         return context
 
 
 def index(request):
-    return render(request, 'index.html', )
+    return render(request, 'index.html')
 
 
-def nosotros(request):
+def us(request):
     return render(request, 'nosotros.html', )
 
 
-def servcios(request):
+def services(request):
     return render(request, 'servicios.html', )
 
 
-def contacto(request):
+def contact(request):
     if request.method == 'POST':
-        formulario = Formulario(request.POST)
-        if formulario.is_valid():
-            asunto = 'Mensaje de Arquetitek'
-            nombre = formulario.cleaned_data['nombre']
-            email = formulario.cleaned_data['email']
-            telefono = formulario.cleaned_data['telefono']
-            mensaje = formulario.cleaned_data['mensaje']
-            ctx = {'nombre': nombre, 'email': email, 'telefono': telefono, 'mensaje': mensaje}
+        form = Form(request.POST)
+        if form.is_valid():
+            affair = 'Mensaje de Arquetitek'
+            name = form.cleaned_data["name"]
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data["phone"]
+            message = form.cleaned_data["message"]
+            ctx = {'name': name, 'email': email, 'phone': phone, 'message': message}
             message_html = render_to_string('datos_mail_admin.html', ctx)
-            mail = EmailMultiAlternatives(asunto, message_html, cc=(email,), to=['juniorrivasmendoza@gmail.com'])
+            mail = EmailMultiAlternatives(affair, message_html, cc=(email,), to=['juniorrivasmendoza@gmail.com'])
             mail.attach_alternative(message_html, 'text/html')
             mail.send()
-            messages.success(request, 'Su mensaje fue enviado con Exito', extra_tags='alert')
+            messages.success(request, 'Su message fue enviado con Exito', extra_tags='alert')
             return HttpResponseRedirect('index.html')
         else:
             messages.warning(request, 'Please correct the error below.')
     else:
-        formulario = Formulario()
-    return render(request, 'contacto.html', {'formulario': formulario}, )
+        form = Form()
+    return render(request, 'contacto.html', {'form': form}, )

@@ -1,26 +1,26 @@
 from django.contrib import admin
 
-from .models import Post, Foto, Portafolio, Photos
+from .models import Post, PostPhoto, Portfolio, PhotoPortfolio
 
 
 # Register your models here.
 
-class FotoInline(admin.TabularInline):
-    model = Foto
+class PhotoInline(admin.TabularInline):
+    model = PostPhoto
 
 
 class PostAdmin(admin.ModelAdmin):
-    inlines = [FotoInline, ]
-    list_display = ['titulo', 'imagen', 'publicado', 'autor']
+    inlines = [PhotoInline, ]
+    list_display = ['title', 'image', 'published', 'author']
 
 
-class PhotosInline(admin.TabularInline):
-    model = Photos
+class PhotoPortfolioInline(admin.TabularInline):
+    model = PhotoPortfolio
 
 
-class PortafolioAdmin(admin.ModelAdmin):
-    inlines = [PhotosInline, ]
-    list_display = ['titulo', 'imagen', 'autor']
+class PortfolioAdmin(admin.ModelAdmin):
+    inlines = [PhotoPortfolioInline, ]
+    list_display = ['title', 'image', 'author']
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Portafolio, PortafolioAdmin)
+admin.site.register(Portfolio, PortfolioAdmin)

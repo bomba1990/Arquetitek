@@ -2,7 +2,6 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.template.defaultfilters import slugify
-from django.utils import timezone
 
 
 class BaseModel(models.Model):
@@ -18,62 +17,59 @@ def upload_fotos(instance, filename):
 
 
 class Post(BaseModel):
-    titulo = models.CharField(max_length=200)
-    descripcion = models.CharField(max_length=200)
-    contenido = RichTextUploadingField()
-    imagen = models.ImageField(upload_to=upload_fotos, blank=True)
+    title = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+    content = RichTextUploadingField()
+    image = models.ImageField(upload_to=upload_fotos, blank=True)
     video = models.CharField(max_length=200, blank=True)
     slug = models.SlugField(unique=True, editable=False)
-    presentar = models.BooleanField(default=True)
-    autor = models.ForeignKey(get_user_model())
-    publicado = models.DateField(auto_now_add=True)
+    author = models.ForeignKey(get_user_model())
+    published = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.titulo
+        return self.title
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.slug = slugify(self.titulo)
+            self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
 
 
-class Foto(BaseModel):
+class PostPhoto(BaseModel):
     post = models.ForeignKey(Post)
-    titulo = models.CharField(max_length=100)
-    foto = models.ImageField(upload_to=upload_fotos, blank=True)
+    title = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to=upload_fotos, blank=True)
 
     def __str__(self):
-        return self.titulo
+        return self.title
 
-class Portafolio(BaseModel):
-    titulo = models.CharField(max_length=200)
-    descripcion = models.CharField(max_length=200)
-    contenido = RichTextUploadingField()
-    imagen = models.ImageField(upload_to=upload_fotos, blank=True)
+
+class Portfolio(BaseModel):
+    title = models.CharField(max_length=200)
+    description = models.CharField(max_length=200)
+    content = RichTextUploadingField()
+    image = models.ImageField(upload_to=upload_fotos, blank=True)
     video = models.CharField(max_length=200, blank=True)
     slug = models.SlugField(editable=False)
-    presentar = models.BooleanField(default=True)
-    autor = models.ForeignKey(get_user_model())
+    author = models.ForeignKey(get_user_model())
     create = models.CharField(max_length=200)
     completed = models.DateField()
     skills = models.CharField(max_length=200)
     client = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.titulo
+        return self.title
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            self.slug = slugify(self.titulo)
-        super(Portafolio, self).save(*args, **kwargs)
+            self.slug = slugify(self.title)
+        super(Portfolio, self).save(*args, **kwargs)
 
 
-class Photos(BaseModel):
-    portafolio = models.ForeignKey(Portafolio)
-    titulo = models.CharField(max_length=100)
-    foto = models.ImageField(upload_to=upload_fotos, blank=True)
+class PhotoPortfolio(BaseModel):
+    portfolio = models.ForeignKey(Portfolio)
+    title = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to=upload_fotos, blank=True)
 
     def __str__(self):
-        return self.titulo
-
-
+        return self.title

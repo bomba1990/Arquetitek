@@ -1,10 +1,8 @@
-from .models import Post, Portafolio
+from .models import Post, Portfolio
 
 
-def mis_variables(request):
-    return {'mis_variables': Portafolio.objects.all}
+def content_portfolio(request):
+    return {'content_portfolio': Portfolio.objects.all()[:4], 'content_post': Post.objects.all()[:4]}
 
 
-def mis_post(request):
-    return {'mis_post': Post.objects.all}
 
