@@ -26,6 +26,8 @@ class Post(BaseModel):
     author = models.ForeignKey(get_user_model())
     published = models.DateField()
 
+    class Meta:
+        ordering = ["-published"]
     def __str__(self):
         return self.title
 
