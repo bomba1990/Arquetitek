@@ -46,6 +46,7 @@ class PortfolioDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PortfolioDetailView, self).get_context_data(**kwargs)
         context["gallery"] = PhotoPortfolio.objects.filter(portfolio=self.object)
+        context["portafolio_related"] = Portfolio.objects.exclude(pk=self.object.pk)
         return context
 
 
