@@ -66,8 +66,7 @@ local_settings_production.py
 *.db
 *.sqlite3
 static/static-only
-workspace.xml
-.idea/workspace.xml
+
 debug.log
 
 # Flask instance folder
@@ -113,3 +112,4 @@ ahsante/assets/bundles/local/
 !static/CACHE/
 static/
 media/
+ServerEnv
