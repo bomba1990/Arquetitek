@@ -4,19 +4,19 @@
 {% block page_title %}Portafolio |{% endblock %}
 
 {% block main %}
-<!-- Page Title
-        ============================================= -->
-<section id="page-title">
-
-    <div class="container clearfix">
-        <h1>{{ portfolio.title }}</h1>
-    </div>
-
-</section><!-- #page-title end -->
 
 <!-- Content
 ============================================= -->
 <section id="content">
+
+    <!-- Portfolio Single Gallery Thumbs
+    ============================================= -->
+    <div class="col_full portfolio-single-image masonry-thumbs col-3" data-big="2" data-lightbox="gallery">
+        <a href="{{ portfolio.image.url }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}"></a>
+        {% for photoportfolio in portfolio.photoportfolio_set.all %}
+        <a href="{{ photoportfolio.photo.url }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ photoportfolio.photo.url }}" alt="{{ photoportfolio.title }}"></a>
+        {% endfor %}
+    </div><!-- .portfolio-single-image end -->
 
     <div class="content-wrap">
 
@@ -25,42 +25,6 @@
 
             <div class="single-post nobottommargin">
 
-                <!-- Portfolio Single Gallery
-                ============================================= -->
-
-                {% if portfolio.photo_set.count %}
-                <div class=" col_full portfolio-single-image">
-                    <div class="fslider" data-arrows="true" data-animation="slide">
-                        <div class="flexslider">
-                            <div class="slider-wrap">
-                                {% if portfolio.image %}
-                                <div class="slide"><a><img
-                                        src="{{ portfolio.image.url }}" alt=""></a>
-                                </div>
-                                {% endif %}
-                                {% for photoportfolio in portfolio.photoportfolio_set.all %}
-                                <div class="slide"><a><img
-                                        src="{{ photoportfolio.photo.url }}" alt=""></a>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% elif portfolio.image %}
-                <div class="entry-image bottommargin">
-                    <a><img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}"></a>
-                </div><!-- .entry-image end -->
-                {% elif portfolio.video %}
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ portfolio.video }}"
-                        frameborder="0"
-                        allowfullscreen></iframe>
-
-                {% endif %}
-
-
-                <!-- .portfolio-single-image end -->
-
                 <div class="col_one_third nobottommargin">
 
                     <!-- Portfolio Single - Meta
@@ -68,12 +32,18 @@
                     <div class="panel panel-default events-meta">
                         <div class="panel-body">
                             <ul class="portfolio-meta nobottommargin">
-                                <li><span><i class="icon-user"></i>Created by:</span> {{ portfolio.create }}</li>
+                                <li><span><i class="icon-user"></i>Creado por:</span> {{ portfolio.created_by }}</li>
                                 <li><span><i
-                                        class="icon-calendar3"></i>Completed on:</span> {{ portfolio.completed }}
+                                        class="icon-calendar3"></i>Fecha:</span> {{ portfolio.completed }}
                                 </li>
-                                <li><span><i class="icon-lightbulb"></i>Skills:</span> {{ portfolio.skills }}</li>
-                                <li><span><i class="icon-link"></i>Client:</span> <a
+
+                                {% for service in portfolio.get_services %}
+                                <li>
+                                    <span>{% if forloop.first %}
+                                        <i class="icon-lightbulb"></i>Servicios:{% endif %}</span>
+                                    {{ service }}</li>
+                                {% endfor %}
+                                <li><span><i class="icon-link"></i>Cliente:</span> <a
                                         href="#">{{ portafolio.client }}</a></li>
                             </ul>
                         </div>
@@ -83,7 +53,7 @@
                     <!-- Portfolio Single - Share
                     ============================================= -->
                     <div class="si-share noborder clearfix">
-                        <span>Share:</span>
+                        <span>Share: </span>
                         <div>
                             <a href="https://www.facebook.com/Arquetitek/"
                                class="social-icon si-borderless si-facebook">

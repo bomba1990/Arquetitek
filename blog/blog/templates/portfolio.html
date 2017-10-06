@@ -6,54 +6,63 @@
 {% block main %}
 
 
-<div class="clear"></div>
+    <div class="clear"></div>
 
-<section id="content">
+    <section id="content">
 
-    <div class="content-wrap">
+        <div class="content-wrap" style="padding: 1px 0 0 0;">
 
-        <!-- portfolio
-         ============================================= -->
+            <!-- portfolio
+             ============================================= -->
 
-        <div id="posts" class="post-grid grid-container post-masonry post-masonry-full clearfix">
-            {% for portfolio in object_list %}
-            <div class="entry clearfix">
-                {% if portfolio.image %}
-                <div class="entry-image">
-                    <div class="entry-image">
-                    </div>
+            <div id="portfolio"
+                 class="portfolio grid-container portfolio-nomargin portfolio-full portfolio-masonry mixed-masonry grid-container clearfix">
 
-                    <a href="{{ portfolio.image.url }}" data-lightbox="image"><img class="image_fade"
-                                                                                     src="{{ portfolio.image.url }}"
-                                                                                     alt="Standard portfolio with Image"></a>
-                </div>
-                {% elif portfolio.video %}
+                {% for portfolio in object_list %}
+                    <article class="portfolio-item pf-media pf-icons wide">
+                        <div class="portfolio-image">
+                            {% if portfolio.image %}
+                                <a href="{% url 'portfolio-detail' portfolio.slug %}">
+                                    <img class="image_fade"
+                                         src="{{ portfolio.image.url }}"
+                                         alt="Standard portfolio with Image"></a>
 
-                <div class="entry-image">
-                    <iframe width="560" height="315"
-                            src="https://www.youtube.com/embed/{{ portfolio.video }}"
-                            frameborder="0"
-                            allowfullscreen></iframe>
-                </div>
-                {% endif %}
+                            {% endif %}
 
-                <div class="entry-title">
-                    <h2><a><a href="{% url 'portfolio-detail' portfolio.slug %}">{{ portfolio.title }}</a></a></h2>
-                </div>
-                <ul class="entry-meta clearfix">
-                    <li>{{ portfolio.published }}</li>
-                    <li>{{ portfolio.author }}</li>
-                    <li><a href="#"><i class="icon-camera-retro"></i></a></li>
-                </ul>
-                <div class="entry-content">
-                    <p>{{ portfolio.description }}</p>
-                    <a href="{% url 'portfolio-detail' portfolio.slug %}" class="more-link">Read More</a>
-                </div>
+
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-desc">
+                                    <h3><a href="{% url 'portfolio-detail' portfolio.slug %}">{{ portfolio.title }}</a></h3>
+                                </div>
+                                 {% if portfolio.image %}
+                                <a href="{{ portfolio.image.url }}" class="left-icon" data-lightbox="image"><i
+                                        class="icon-line-stack-2"></i></a>
+                                {% endif %}
+                                <a href="{% url 'portfolio-detail' portfolio.slug %}" class="right-icon"><i
+                                        class="icon-line-ellipsis"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                    {% comment %}<div class="entry clearfix">
+
+                        <div class="entry-title">
+                            <h2><a><a href="{% url 'portfolio-detail' portfolio.slug %}">{{ portfolio.title }}</a></a>
+                            </h2>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li>{{ portfolio.published }}</li>
+                            <li>{{ portfolio.author }}</li>
+                            <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                        </ul>
+                        <div class="entry-content">
+                            <p>{{ portfolio.description }}</p>
+                            <a href="{% url 'portfolio-detail' portfolio.slug %}" class="more-link">Read More</a>
+                        </div>
+                    </div>{% endcomment %}
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
-    </div>
 
-</section>
+    </section>
 
 {% endblock %}|

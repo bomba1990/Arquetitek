@@ -49,19 +49,21 @@ class PostPhoto(BaseModel):
 
 class Portfolio(BaseModel):
     title = models.CharField(max_length=200)
-    description = models.TextField()
     content = RichTextUploadingField()
-    image = models.ImageField(upload_to=upload_fotos, blank=True)
-    video = models.CharField(max_length=200, blank=True)
+    image = models.ImageField(upload_to=upload_fotos)
+    video = models.CharField(max_length=200, blank=True, null=True)
     slug = models.SlugField(editable=False)
     author = models.ForeignKey(get_user_model())
-    create = models.CharField(max_length=200)
+    created_by = models.CharField(max_length=200)
     completed = models.DateField()
-    skills = models.CharField(max_length=200)
+    services = models.CharField(max_length=200)
     client = models.CharField(max_length=200)
 
     def __str__(self):
         return self.title
+
+    def get_services(self):
+        return self.services.split(",")
 
     def save(self, *args, **kwargs):
         if not self.pk:
