@@ -60,6 +60,9 @@ class Portfolio(BaseModel):
     client = models.CharField(max_length=200)
     client_url = models.URLField(blank=True, null=True)
 
+    class Meta:
+        ordering = ["-completed"]
+
     def __str__(self):
         return self.title
 
