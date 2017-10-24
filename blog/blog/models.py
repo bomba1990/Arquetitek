@@ -59,6 +59,7 @@ class Portfolio(BaseModel):
     services = models.CharField(max_length=200)
     client = models.CharField(max_length=200)
     client_url = models.URLField(blank=True, null=True)
+    photos_col_size = models.IntegerField(default=3)
 
     class Meta:
         ordering = ["-completed"]
