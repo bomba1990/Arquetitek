@@ -76,6 +76,10 @@ class PhotoPortfolio(BaseModel):
     portfolio = models.ForeignKey(Portfolio)
     title = models.CharField(max_length=100)
     photo = models.ImageField(upload_to=upload_fotos, blank=True)
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        ordering = ["order"]
 
     def __str__(self):
         return self.title

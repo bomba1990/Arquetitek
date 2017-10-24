@@ -12,10 +12,14 @@
     <!-- Portfolio Single Gallery Thumbs
     ============================================= -->
     <div class="col_full portfolio-single-image masonry-thumbs col-3" data-big="2" data-lightbox="gallery">
-        <a href="{{ portfolio.image.url }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}"></a>
-        {% for photoportfolio in portfolio.photoportfolio_set.all %}
-        <a href="{{ photoportfolio.photo.url }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ photoportfolio.photo.url }}" alt="{{ photoportfolio.title }}"></a>
-        {% endfor %}
+        {% if portfolio.photoportfolio_set.all %}
+            {% for photoportfolio in portfolio.photoportfolio_set.all %}
+            <a href="{{ photoportfolio.photo.url }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ photoportfolio.photo.url }}" alt="{{ photoportfolio.title }}"></a>
+            {% endfor %}
+        {% else %}
+            <a href="{{ portfolio.image.url }}" data-lightbox="gallery-item"><img class="image_fade" src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}"></a>
+        {% endif %}
+
     </div><!-- .portfolio-single-image end -->
 
     <div class="content-wrap">
