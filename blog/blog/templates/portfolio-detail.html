@@ -38,7 +38,7 @@
                             <ul class="portfolio-meta nobottommargin">
                                 <li><span><i class="icon-user"></i>Creado por:</span> {{ portfolio.created_by }}</li>
                                 <li><span><i
-                                        class="icon-calendar3"></i>Fecha:</span> {{ portfolio.completed }}
+                                        class="icon-calendar3"></i>Fecha:</span> {{ portfolio.completed:date:"N Y" }}
                                 </li>
 
                                 {% for service in portfolio.get_services %}
