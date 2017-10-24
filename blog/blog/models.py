@@ -58,6 +58,7 @@ class Portfolio(BaseModel):
     completed = models.DateField()
     services = models.CharField(max_length=200)
     client = models.CharField(max_length=200)
+    client_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.title
